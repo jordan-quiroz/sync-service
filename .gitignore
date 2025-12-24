@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Temporary folders
+tmp/
+temp/
+
+# Output of web compilers
+.sass-cache/
+.nuxt/
+.unjs/
+
+# Firebase
+firebase-credentials.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+.apdisk
+
+# Docker
+.dockerignore
+
+# TypeScript
+*.tsbuildinfo
