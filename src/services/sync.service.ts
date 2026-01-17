@@ -131,7 +131,7 @@ export class SyncService {
     private async syncGroups(userId: string, sessionPhone: string): Promise<number> {
         try {
             const response = await axios.get(
-                `${this.whatsappApiUrl}/group/fetchAllGroups/${userId}?getParticipants=false`,
+                `${this.whatsappApiUrl}/group/fetchAllGroups/${userId}?getParticipants=true`,
                 { headers: { apikey: this.whatsappApiKey } }
             );
 
@@ -148,7 +148,11 @@ export class SyncService {
                     sessionPhone,
                     groupId: g.id,
                     name: g.subject || 'Unknown Group',
-                    participants: g.size || 0
+                    participants: g.size || g.participants?.length || 0,
+                    participantsList: g.participants?.map((p: any) => ({
+                        phone: p.phoneNumber?.split('@')[0] || '',
+                        isAdmin: p.admin === 'admin' || p.admin === 'superadmin'
+                    })) || []
                 }));
 
             return await this.groupRepository.upsertMany(groupsData);
