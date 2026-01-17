@@ -1,11 +1,6 @@
 import { BaseRepository } from './base.repository';
 import moment from 'moment-timezone';
 
-export interface GroupParticipant {
-    phone: string;
-    isAdmin: boolean;
-}
-
 export interface Group {
     _id?: string;
     userId: string;
@@ -13,7 +8,6 @@ export interface Group {
     groupId: string;
     name: string;
     participants?: number;
-    participantsList?: GroupParticipant[];
     createdAt?: string;
     updatedAt?: string;
 }
